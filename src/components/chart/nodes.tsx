@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { GanttNode } from '../../types'
+import Node from './node'
 
 type Props = {
   nodes: GanttNode[];
@@ -8,7 +9,14 @@ type Props = {
 const Index: FC<Props> = ({ nodes = []}) => {
   return (
     <g>
-
+      {nodes.map((node, index) => {
+        return (
+          <Node 
+            node={node}
+            index={index}
+          />
+        )
+      })}
     </g>
   )
 }
