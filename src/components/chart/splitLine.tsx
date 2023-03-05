@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { GanttNode } from '../../types'
 import { ROW_HEIGHT, columnWidth, XAXIS_ARR } from '../../constant'
 
@@ -9,7 +9,7 @@ type Props = {
 
 const SplitLine:  FC<Props> = ({ nodes }) => {
 
-  const getHorizontalPosition = () => {
+  const horizontalPosition = useMemo(() => {
     return nodes.map((node, index) => {
       return { 
         x1: 0,
@@ -18,11 +18,9 @@ const SplitLine:  FC<Props> = ({ nodes }) => {
         y2: ROW_HEIGHT * index
       }
     })
-  }
+  },[])
 
-  const horizontalPosition = getHorizontalPosition()
-
-  const getVerticalPosition = () => {
+  const verticalPosition = useMemo(() => {
     const arr = new Array(XAXIS_ARR.length)
     arr.fill(0)
 
@@ -34,9 +32,7 @@ const SplitLine:  FC<Props> = ({ nodes }) => {
         y2: ROW_HEIGHT * nodes.length
       }
     })
-  }
-
-  const verticalPosition = getVerticalPosition()
+  },[])
 
   return (
     <g>
