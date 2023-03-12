@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import Gantt from 'time-gantt';
-import Title from './components/title'
-import XAxis from './components/xAxis'
-import Chart from './components/chart'
-import { data } from './data'
+import Index from './index'
+import { data, XAXIS_ARR } from './data'
 
 function App() {
 
@@ -12,9 +10,7 @@ function App() {
     <div className="app">
       <Gantt data={data}/>
       <div className="chart-container">
-        <Title title="任务时间甘特图"></Title>
-        <Chart data={data}/>
-        <XAxis />
+        <Index data={data} xAxisArr={XAXIS_ARR}/>
       </div>
     </div>
   )

@@ -1,27 +1,29 @@
 import { FC, useMemo } from 'react';
-import { GanttNode } from '../../types'
-import { ROW_HEIGHT, columnWidth, XAXIS_ARR } from '../../constant'
-
+import { GanttNode, GanttOptionsType } from '../../types'
 
 type Props = {
-  nodes: GanttNode[]
+  nodes: GanttNode[];
+  xAxisArr: string[],
+  options: GanttOptionsType,
 }
 
-const SplitLine:  FC<Props> = ({ nodes }) => {
+const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
+
+  const { columnWidth, rowHeight } = options;
 
   const horizontalPosition = useMemo(() => {
     return nodes.map((node, index) => {
       return { 
         x1: 0,
-        y1: ROW_HEIGHT * index,
+        y1: rowHeight * index,
         x2: columnWidth * 48,
-        y2: ROW_HEIGHT * index
+        y2: rowHeight * index
       }
     })
   },[])
 
   const verticalPosition = useMemo(() => {
-    const arr = new Array(XAXIS_ARR.length)
+    const arr = new Array(xAxisArr.length)
     arr.fill(0)
 
     return arr.map((_,i) => {
@@ -29,7 +31,7 @@ const SplitLine:  FC<Props> = ({ nodes }) => {
         x1: columnWidth * i,
         y1: 0,
         x2: columnWidth * i,
-        y2: ROW_HEIGHT * nodes.length
+        y2: rowHeight * nodes.length
       }
     })
   },[])

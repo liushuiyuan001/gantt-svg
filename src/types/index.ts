@@ -22,3 +22,9 @@ export type GanttData = {
   showDate?: string,
   nodes: GanttNode[],
 }
+
+export type GanttOptionsType = {
+  rowHeight: number,
+  columnWidth: number,
+  chartWidth: number,
+}

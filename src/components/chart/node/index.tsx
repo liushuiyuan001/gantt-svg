@@ -1,17 +1,18 @@
 import { FC } from 'react'
-import { GanttNode } from '../../../types'
-import { ROW_HEIGHT, columnWidth, NODE_ATTRIBUTE } from '../../../constant'
+import { GanttNode, GanttOptionsType } from '../../../types'
+import { NODE_ATTRIBUTE } from '../../../constant'
 
 type Props = {
   node: GanttNode;
   index: number;
+  options: GanttOptionsType,
 }
 
-const Index: FC<Props> = ({node, index}) => {
+const Index: FC<Props> = ({node, index, options }) => {
 
-  const startY = index * ROW_HEIGHT;
+  const { rowHeight, columnWidth } = options;
+  const startY = index * rowHeight;
   const startX = index * columnWidth;
-
   return (
     <g>
       <text

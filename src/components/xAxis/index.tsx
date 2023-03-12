@@ -1,26 +1,30 @@
 import { FC } from 'react';
 import './index.css'
-import { startIndex, CHART_WIDTH, columnWidth, XAXIS_ARR } from '../../constant'
+import { GanttOptionsType } from '../../types'
+import { startIndex } from '../../constant'
 
 type Props = {
+  options: GanttOptionsType,
+  xAxisArr: string[],
 }
 
-const Index:  FC<Props> = ({ }) => {
+const Index:  FC<Props> = ({ options, xAxisArr }) => {
 
+  const { chartWidth, columnWidth } = options;
   const renderLine = () => {
     return (
       <svg>
         <line 
           x1={startIndex[0]}
           y1={startIndex[1]}
-          x2={startIndex[0] + CHART_WIDTH}
+          x2={startIndex[0] + chartWidth}
           y2={startIndex[1]}
           strokeWidth="1" 
           strokeOpacity="0.4" 
           stroke="black"
         />
         {
-          XAXIS_ARR.map((_,i) => {
+          xAxisArr.map((_,i) => {
             if(i % 2 !== 0) {
               return null;
             }
@@ -47,7 +51,7 @@ const Index:  FC<Props> = ({ }) => {
     return (
       <svg>
         {
-          XAXIS_ARR.map((axis, index) => {
+          xAxisArr.map((axis, index) => {
             if(index % 2 !== 0) {
               return null;
             }
@@ -72,7 +76,7 @@ const Index:  FC<Props> = ({ }) => {
   return (
     <div className="x-axis">
       <svg
-        width={CHART_WIDTH + 146} 
+        width={chartWidth + 146} 
         height="63"
       >
         {renderLine()}

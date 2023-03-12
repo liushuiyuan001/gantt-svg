@@ -1,17 +1,18 @@
 import { FC } from 'react'
-import { GanttNode } from '../../types'
-import { ROW_HEIGHT } from '../../constant'
+import { GanttNode, GanttOptionsType } from '../../types'
 
 type Props = {
-  nodes: GanttNode[]
+  nodes: GanttNode[],
+  options: GanttOptionsType
 }
 
-const Index: FC<Props> = ({ nodes }) => {
+const Index: FC<Props> = ({ nodes, options }) => {
 
+  const { rowHeight } = options;
   return (
     <g>
       {nodes.map((node, index) => {
-        const y = 54 + ROW_HEIGHT * index
+        const y = 54 + rowHeight * index
         return <text
           key={index}
           x="24"
