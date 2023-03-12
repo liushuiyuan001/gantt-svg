@@ -19,7 +19,8 @@ export type GanttData = {
   title?: string,
   showPercent?: number,
   showStartPercent?: number,
-  showDate?: string,
+  showDate: string,
+  endDate: string,
   nodes: GanttNode[],
 }
 

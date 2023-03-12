@@ -4,6 +4,7 @@ specifiers:
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react-swc': ^3.0.0
+  moment: ^2.29.4
   react: ^18.2.0
   react-dom: ^18.2.0
   time-gantt: ^0.0.1
@@ -11,6 +12,7 @@ specifiers:
   vite: ^4.1.0
 
 dependencies:
+  moment: registry.npmmirror.com/moment/2.29.4
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
   time-gantt: registry.npmmirror.com/time-gantt/0.0.1

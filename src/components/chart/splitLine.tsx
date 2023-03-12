@@ -20,7 +20,7 @@ const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
         y2: rowHeight * index
       }
     })
-  },[])
+  },[nodes,rowHeight,columnWidth])
 
   const verticalPosition = useMemo(() => {
     const arr = new Array(xAxisArr.length)
@@ -34,7 +34,7 @@ const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
         y2: rowHeight * nodes.length
       }
     })
-  },[])
+  },[nodes,xAxisArr,columnWidth,rowHeight])
 
   return (
     <g>

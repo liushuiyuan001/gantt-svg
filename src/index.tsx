@@ -5,7 +5,6 @@ import Chart from './components/chart'
 import { GanttData, GanttOptionsType } from './types'
 
 type Props = {
-  title?: string;
   data: GanttData,
   xAxisArr: string[],
   options?: GanttOptionsType,
@@ -13,7 +12,6 @@ type Props = {
 
 
 const Index:FC<Props> =  ({
-  title = '任务时间甘特图',
   data,
   xAxisArr,
   options = {
@@ -23,7 +21,7 @@ const Index:FC<Props> =  ({
   }
 }) => {
   return (<>
-      <Title title={title}></Title>
+      <Title title={data.title || '任务时间甘特图'}></Title>
       <Chart data={data} options={options} xAxisArr={xAxisArr}/>
       <XAxis xAxisArr={xAxisArr} options={options}/>
   </>)

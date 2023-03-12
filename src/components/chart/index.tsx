@@ -15,7 +15,7 @@ type Props = {
 
 const Index: FC<Props> = ({ data, options, xAxisArr }) => {
 
-  const { nodes = [] } = data;
+  const { nodes = [], showDate, endDate } = data;
   const { rowHeight, chartWidth } = options;
 
   const chartHeight = rowHeight * nodes.length + START_INDEX[1]
@@ -32,7 +32,7 @@ const Index: FC<Props> = ({ data, options, xAxisArr }) => {
           transform={`translate(${START_INDEX[0]}, ${START_INDEX[1]})`}
         >
           <SplitLine nodes={nodes} options={options} xAxisArr={xAxisArr}/> 
-          <Nodes nodes={nodes} options={options}/>
+          <Nodes nodes={nodes} options={options} showDate={showDate} endDate={endDate}/>
         </g>
         <YAxis nodes={nodes} options={options}/>
       </svg>

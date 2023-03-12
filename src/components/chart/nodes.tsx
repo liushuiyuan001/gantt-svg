@@ -5,9 +5,11 @@ import Node from './node'
 type Props = {
   nodes: GanttNode[];
   options: GanttOptionsType,
+  showDate: string,
+  endDate: string,
 }
 
-const Index: FC<Props> = ({ nodes = [], options }) => {
+const Index: FC<Props> = ({ nodes = [], options, showDate, endDate }) => {
   return (
     <g>
       {nodes.map((node, index) => {
@@ -16,6 +18,8 @@ const Index: FC<Props> = ({ nodes = [], options }) => {
             options={options}
             node={node}
             index={index}
+            showDate={showDate}
+            endDate={endDate}
             key={index}
           />
         )
