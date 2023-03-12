@@ -5,7 +5,6 @@ import YAxis from '../yAxis'
 import SplitLine from './splitLine'
 import Nodes from './nodes'
 import { GanttOptionsType } from '../../types'
-import { START_INDEX } from '../../constant'
 
 type Props = {
   data: GanttData;
@@ -18,7 +17,7 @@ const Index: FC<Props> = ({ data, options, xAxisArr }) => {
   const { nodes = [], showDate, endDate } = data;
   const { rowHeight, chartWidth } = options;
 
-  const chartHeight = rowHeight * nodes.length + START_INDEX[1]
+  const chartHeight = rowHeight * (nodes.length - 1)
 
   return (
     <div className="chart-svg">
@@ -29,7 +28,7 @@ const Index: FC<Props> = ({ data, options, xAxisArr }) => {
         height={chartHeight}
       >
         <g
-          transform={`translate(${START_INDEX[0]}, ${START_INDEX[1]})`}
+          transform={`translate(92, 0)`}
         >
           <SplitLine nodes={nodes} options={options} xAxisArr={xAxisArr}/> 
           <Nodes nodes={nodes} options={options} showDate={showDate} endDate={endDate}/>

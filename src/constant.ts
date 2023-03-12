@@ -1,4 +1,3 @@
-export const START_INDEX = [92, 24];
 
 export const NODE_ATTRIBUTE = {
   name: {
@@ -13,5 +12,3 @@ export const NODE_ATTRIBUTE = {
     height: 12,
   },
 };
-
-export const startIndex = [92, 0]

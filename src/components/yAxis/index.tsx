@@ -12,7 +12,7 @@ const Index: FC<Props> = ({ nodes, options }) => {
   return (
     <g>
       {nodes.map((node, index) => {
-        const y = 54 + rowHeight * index
+        const y = 30 + rowHeight * index
         return <text
           key={index}
           x="24"

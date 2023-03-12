@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="app">
-      <Gantt data={data}/>
+      {/* <Gantt data={data}/> */}
       <div className="chart-container">
         <Index data={data} xAxisArr={XAXIS_ARR}/>
       </div>

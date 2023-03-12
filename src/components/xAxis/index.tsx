@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import './index.css'
 import { GanttOptionsType } from '../../types'
-import { startIndex } from '../../constant'
 
 type Props = {
   options: GanttOptionsType,
@@ -15,10 +14,10 @@ const Index:  FC<Props> = ({ options, xAxisArr }) => {
     return (
       <svg>
         <line 
-          x1={startIndex[0]}
-          y1={startIndex[1]}
-          x2={startIndex[0] + chartWidth}
-          y2={startIndex[1]}
+          x1={92}
+          y1={0}
+          x2={92 + chartWidth}
+          y2={0}
           strokeWidth="1" 
           strokeOpacity="0.4" 
           stroke="black"
@@ -31,10 +30,10 @@ const Index:  FC<Props> = ({ options, xAxisArr }) => {
             return (
               <line 
                 key={i}
-                x1={startIndex[0] + columnWidth * i }
-                y1={startIndex[1]}
-                x2={startIndex[0] + columnWidth * i}
-                y2={startIndex[1] + 5}
+                x1={92 + columnWidth * i }
+                y1={0}
+                x2={92 + columnWidth * i}
+                y2={5}
                 strokeWidth="1"
                 strokeOpacity="0.4"
                 stroke="black"
@@ -57,7 +56,7 @@ const Index:  FC<Props> = ({ options, xAxisArr }) => {
             }
             return (
               <text
-                x={startIndex[0] + columnWidth * index - 10}
+                x={92 + columnWidth * index - 10}
                 y="25"
                 fill="#000"
                 fillOpacity="0.45"
