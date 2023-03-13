@@ -40,7 +40,6 @@ const Index:  FC<Props> = ({ options, xAxisArr }) => {
               />
             )
           })
-
         }
       </svg>
     )
@@ -77,6 +76,8 @@ const Index:  FC<Props> = ({ options, xAxisArr }) => {
       <svg
         width={chartWidth + 146} 
         height="63"
+        transform={`translate(0, -6)`}
+        fill="#000"
       >
         {renderLine()}
         {renderXAxis()}

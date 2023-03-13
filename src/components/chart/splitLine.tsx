@@ -40,6 +40,10 @@ const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
     <g>
       {
         horizontalPosition.map((line,i) => {
+          // 最后一个横线不用画
+          if(i === horizontalPosition.length - 1) {
+            return null;
+          }
           return (
             <line
               x1={line.x1}
