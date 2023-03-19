@@ -17,7 +17,8 @@ const Index:FC<Props> =  ({
   options = {
     chartWidth: 1036, 
     columnWidth: 21.5,
-    rowHeight: 55
+    rowHeight: 55,
+    nodeHeight: 12
   }
 }) => {
   return (<>

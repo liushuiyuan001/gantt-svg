@@ -1,7 +1,6 @@
 import { FC, useMemo } from 'react'
 import moment from 'moment'
 import { GanttNode, GanttOptionsType } from '../../../types'
-import { NODE_ATTRIBUTE } from '../../../constant'
 
 type Props = {
   node: GanttNode;
@@ -13,7 +12,7 @@ type Props = {
 
 const Index: FC<Props> = ({ node, index, options, showDate, endDate }) => {
 
-  const { rowHeight, columnWidth } = options;
+  const { rowHeight, columnWidth, nodeHeight } = options;
   const startY = index * rowHeight;
 
   let startX = 0;
@@ -37,7 +36,7 @@ const Index: FC<Props> = ({ node, index, options, showDate, endDate }) => {
       nodeEndTime = moment(endDate).valueOf()
     }
 
-    const costMills = nodeEndTime.valueOf() - nodeStartTime;
+    const costMills = nodeEndTime - nodeStartTime;
     return (costMills / 1000 / 60 / 30 * columnWidth).toFixed(2);
   },[])
 
@@ -45,7 +44,7 @@ const Index: FC<Props> = ({ node, index, options, showDate, endDate }) => {
     <g>
       <text
         x={startX}
-        y={startY * 1 + NODE_ATTRIBUTE.name.y + 5}
+        y={startY * 1 + 14 + 5}
         fontSize="12"
         // transform={`translate(${ resTransformX * -1 }, 0)`}
         fill="#666666"
@@ -54,9 +53,9 @@ const Index: FC<Props> = ({ node, index, options, showDate, endDate }) => {
       </text>
       <rect
           x={startX * 1}
-          y={startY * 1 + NODE_ATTRIBUTE.value.y}
+          y={startY * 1 + 31}
           width={calValueWidth}
-          height={NODE_ATTRIBUTE.value.height}
+          height={nodeHeight}
           fill={true ? "#52C41A" : "#FA8C16"}
       />
     </g>

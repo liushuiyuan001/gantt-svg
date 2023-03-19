@@ -28,4 +28,5 @@ export type GanttOptionsType = {
   rowHeight: number,
   columnWidth: number,
   chartWidth: number,
+  nodeHeight: number,
 }
