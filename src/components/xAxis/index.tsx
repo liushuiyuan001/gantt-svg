@@ -5,6 +5,8 @@ import { GanttOptionsType } from '../../types'
 type Props = {
   options: GanttOptionsType,
   xAxisArr: string[],
+  showDate: string,
+  endDate: string,
 }
 
 const Index:  FC<Props> = ({ options, xAxisArr }) => {

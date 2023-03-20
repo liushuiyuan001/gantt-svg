@@ -9,10 +9,9 @@ import { GanttOptionsType } from '../../types'
 type Props = {
   data: GanttData;
   options: GanttOptionsType,
-  xAxisArr: string[],
 }
 
-const Index: FC<Props> = ({ data, options, xAxisArr }) => {
+const Index: FC<Props> = ({ data, options }) => {
 
   const { nodes = [], showDate, endDate } = data;
   const { rowHeight, chartWidth } = options;
@@ -30,7 +29,7 @@ const Index: FC<Props> = ({ data, options, xAxisArr }) => {
         <g
           transform={`translate(92, 0)`}
         >
-          <SplitLine nodes={nodes} options={options} xAxisArr={xAxisArr}/> 
+          <SplitLine nodes={nodes} options={options} showDate={showDate} endDate={endDate}/> 
           <Nodes nodes={nodes} options={options} showDate={showDate} endDate={endDate}/>
         </g>
         <YAxis nodes={nodes} options={options}/>

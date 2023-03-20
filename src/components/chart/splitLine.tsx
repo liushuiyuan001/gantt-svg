@@ -1,13 +1,15 @@
 import { FC, useMemo } from 'react';
+import moment from 'moment'
 import { GanttNode, GanttOptionsType } from '../../types'
 
 type Props = {
   nodes: GanttNode[];
-  xAxisArr: string[],
+  showDate: string;
+  endDate: string;
   options: GanttOptionsType,
 }
 
-const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
+const SplitLine:  FC<Props> = ({ nodes, options, showDate, endDate}) => {
 
   const { columnWidth, rowHeight } = options;
 
@@ -22,8 +24,15 @@ const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
     })
   },[nodes,rowHeight,columnWidth])
 
+  const columnsNumber = () => {
+    const end = moment(endDate)
+    const start = moment(showDate)
+
+    return end.diff(start,'h') * 2 + 1
+  }
+
   const verticalPosition = useMemo(() => {
-    const arr = new Array(xAxisArr.length)
+    const arr = new Array(columnsNumber())
     arr.fill(0)
 
     return arr.map((_,i) => {
@@ -34,7 +43,7 @@ const SplitLine:  FC<Props> = ({ nodes, options, xAxisArr }) => {
         y2: rowHeight * nodes.length
       }
     })
-  },[nodes,xAxisArr,columnWidth,rowHeight])
+  },[nodes,columnWidth,rowHeight])
 
   return (
     <g>

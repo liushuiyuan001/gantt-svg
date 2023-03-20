@@ -21,10 +21,11 @@ const Index:FC<Props> =  ({
     nodeHeight: 12
   }
 }) => {
+  const { showDate, endDate } = data
   return (<>
       <Title title={data.title || '任务时间甘特图'}></Title>
-      <Chart data={data} options={options} xAxisArr={xAxisArr}/>
-      <XAxis xAxisArr={xAxisArr} options={options}/>
+      <Chart data={data} options={options} />
+      <XAxis showDate={showDate} endDate={endDate} xAxisArr={xAxisArr} options={options}/>
   </>)
 }
 
